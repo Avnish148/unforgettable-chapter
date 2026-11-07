@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CLASS X — THE UNFORGETTABLE CHAPTER</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #d5ad65;
+    --muted: #aaa;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(213,173,101,0.2);
+}
+
+.logo {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    background:
+    linear-gradient(rgba(0,0,0,.45), #080808),
+    url("IMG-20261009-WA0045.jpg") center/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 950px;
+    animation: appear 2s ease;
+}
+
+.tagline {
+    color: var(--gold);
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(38px,7vw,85px);
+    line-height: 1.15;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.subtitle {
+    color: #ccc;
+    margin-top: 25px;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.typing {
+    color: var(--gold);
+    margin-top: 20px;
+    min-height: 25px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 30px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 12px;
+    transition: .4s;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* COMMON SECTION */
+
+section:not(.hero) {
+    scroll-margin-top: 75px;
+}
+
+.section {
+    padding: 100px 7%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: clamp(35px,5vw,60px);
+    font-weight: normal;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.small-title {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 20px;
+}
+
+.line {
+    width: 70px;
+    height: 2px;
+    background: var(--gold);
+    margin: 25px auto;
+}
+
+.description {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 750px;
+    margin: 0 auto 50px;
+    font-size: 16px;
+}
+
+/* INTRO */
+
+.intro {
+    background: #0c0c0c;
+}
+
+/* GALLERY */
+
+.memories {
+    background: #080808;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.photo {
+    position: relative;
+    height: 310px;
+    overflow: hidden;
+    border: 1px solid rgba(213,173,101,.3);
+    background: #151515;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .7s;
+}
+
+.photo.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.photo:hover img {
+    transform: scale(1.1);
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 12px 18px;
+    background: linear-gradient(transparent,rgba(0,0,0,.95));
+    color: var(--gold);
+    text-align: left;
+}
+
+/* FRIENDSHIP */
+
+.friends {
+    background: #101010;
+}
+
+.friend-card {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 30px;
+    border: 1px solid rgba(213,173,101,.3);
+    background: linear-gradient(145deg,#171717,#0b0b0b);
+}
+
+.friend-card h3 {
+    font-size: 30px;
+    color: var(--gold);
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.friend-card p {
+    color: #bbb;
+    font-size: 17px;
+    line-height: 2;
+}
+
+/* SPECIAL MEMORIES */
+
+.special {
+    background: #080808;
+}
+
+.special-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 25px;
+    border: 1px solid rgba(213,173,101,.4);
+}
+
+.special-box h3 {
+    color: var(--gold);
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.special-box p {
+    color: #aaa;
+    line-height: 2;
+}
+
+/* FINAL */
+
+.final {
+    min-height: 80vh;
+    background:
+    linear-gradient(rgba(0,0,0,.65),#080808),
+    url("IMG-20261009-WA0094.jpg") center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-content {
+    max-width: 800px;
+    padding: 40px 20px;
+}
+
+.final h2 {
+    font-size: clamp(38px,7vw,75px);
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.final h2 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.final p {
+    color: #ccc;
+    margin-top: 30px;
+    line-height: 2;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 15px;
+    text-align: center;
+    background: #050505;
+    color: #777;
+    line-height: 2;
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* TOP BUTTON */
+
+.top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: var(--gold);
+    color: black;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 50;
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+    .gallery {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    nav {
+        padding: 16px 4%;
+    }
+
+    nav a {
+        margin-left: 9px;
+        font-size: 10px;
+    }
+}
+
+@media(max-width:550px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        height: 300px;
+    }
+
+    .logo {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    nav a {
+        margin-left: 7px;
+        font-size: 9px;
+    }
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">CLASS X ✦</div>
+
+    <div>
+        <a href="#home">HOME</a>
+        <a href="#memories">MEMORIES</a>
+        <a href="#friends">FRIENDS</a>
+        <a href="#special">SPECIAL</a>
+    </div>
+</nav>
+
+<!-- PAGE 1: HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="tagline">A JOURNEY THROUGH TIME</p>
+
+        <h1>
+            CLASS X<br>
+            <span>THE UNFORGETTABLE</span><br>
+            CHAPTER
+        </h1>
+
+        <p class="subtitle">Some Chapters Never End...</p>
+
+        <div class="typing" id="typing"></div>
+
+        <a href="#intro" class="btn">
+            ENTER OUR WORLD ↓
+        </a>
+
+    </div>
+
+</section>
+
+<!-- INTRODUCTION -->
+
+<section class="section intro" id="intro">
+
+    <p class="small-title">A LITTLE INTRODUCTION</p>
+
+    <h2 class="section-title">
+        DEAR <span>CLASS X</span>
+    </h2>
+
+    <div class="line"></div>
+
+    <p class="description">
+        We came as strangers, became friends,
+        created memories and lived moments
+        that will stay with us forever.
+
+        These are not just photographs.
+        These are pieces of our lives,
+        captured in time.
+
+        Welcome to our unforgettable chapter.
+    </p>
+
+    <a href="#memories" class="btn">VIEW MEMORIES ↓</a>
+
+</section>
+
+<!-- PAGE 2: GALLERY -->
+
+<section class="section memories" id="memories">
+
+    <p class="small-title">THE MOMENTS WE LIVED</p>
+
+    <h2 class="section-title">
+        OUR <span>MEMORIES</span>
+    </h2>
+
+    <div class="line"></div>
+
+    <p class="description">
+        Every picture has a story.
+        Every story has a memory.
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0045.jpg" alt="Memory 1">
+            <div class="caption">A Beautiful Moment</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0072.jpg" alt="Memory 2">
+            <div class="caption">Unforgettable Days</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0094.jpg" alt="Memory 3">
+            <div class="caption">The Good Times</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0117.jpg" alt="Memory 4">
+            <div class="caption">Captured Forever</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0286.jpg" alt="Memory 5">
+            <div class="caption">Golden Memories</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0288.jpg" alt="Memory 6">
+            <div class="caption">Those Moments</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0298.jpg" alt="Memory 7">
+            <div class="caption">Together Forever</div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20261009-WA0324.jpg" alt="Memory 8">
+            <div class="caption">A Day to Remember</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.20.52 PM.jpeg" alt="Memory 9">
+            <div class="caption">Our Story</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.20.53 PM.jpeg" alt="Memory 10">
+            <div class="caption">Little Moments</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.20.54 PM (2).jpeg" alt="Memory 11">
+            <div class="caption">The Memories</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.20.55 PM.jpeg" alt="Memory 12">
+            <div class="caption">Never Forget</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.20.57 PM.jpeg" alt="Memory 13">
+            <div class="caption">Beautiful Days</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.20.58 PM.jpeg" alt="Memory 14">
+            <div class="caption">Moments of Joy</div>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-11-06 at 2.21.03 PM (1).jpeg" alt="Memory 15">
+            <div class="caption">Forever in Memory</div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PAGE 3: FRIENDS -->
+
+<section class="section friends" id="friends">
+
+    <p class="small-title">PEOPLE WHO MADE IT SPECIAL</p>
+
+    <h2 class="section-title">
+        FRIENDS <span>FOREVER</span>
+    </h2>
+
+    <div class="line"></div>
+
+    <div class="friend-card">
+
+        <h3>More Than Just Classmates</h3>
+
+        <p>
+            The laughter in the classroom,
+            the endless conversations,
+            the silly jokes and the little fights.
+
+            <br><br>
+
+            We may go our separate ways,
+            but the memories we created together
+            will always remain a part of us.
+
+            <br><br>
+
+            Some friendships are simply unforgettable.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PAGE 4: SPECIAL -->
+
+<section class="section special" id="special">
+
+    <p class="small-title">SOME MOMENTS ARE DIFFERENT</p>
+
+    <h2 class="section-title">
+        SPECIAL <span>MEMORIES</span>
+    </h2>
+
+    <div class="line"></div>
+
+    <div class="special-box">
+
+        <h3>A Little Corner of Memories</h3>
+
+        <p>
+            Not every memory needs a thousand words.
+            Some moments are special simply because
+            of the people who made them special.
+
+            <br><br>
+
+            Certain memories will always bring
+            a smile whenever we look back.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PAGE 5: FAREWELL -->
+
+<section class="section final">
+
+    <div class="final-content">
+
+        <p class="small-title">UNTIL WE MEET AGAIN</p>
+
+        <h2>
+            SCHOOL ENDS,<br>
+            <span>MEMORIES DON'T.</span>
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            One day, we will look at these pictures
+            and remember how beautiful these days were.
+
+            The classrooms, the friends, the laughter
+            and all those little moments.
+
+            <br><br>
+
+            This is not the end of our story.
+            It is just the beginning of a new chapter.
+        </p>
+
+        <a href="#home" class="btn">BACK TO BEGINNING ↑</a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>MADE WITH ❤️ FOR THE MEMORIES</p>
+
+    <p>CLASS X — THE UNFORGETTABLE CHAPTER</p>
+
+    <p>© 2026 | <span>FOREVER REMEMBERED</span></p>
+
+</footer>
+
+<a href="#home" class="top">↑</a>
+
+<script>
+
+// TYPING ANIMATION
+
+const messages = [
+    "15 Images. Countless Memories.",
+    "Friends, Laughter & Endless Moments.",
+    "A Chapter We Will Never Forget."
+];
+
+let messageIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.getElementById("typing");
+
+function typeEffect() {
+
+    let current = messages[messageIndex];
+
+    if (!deleting) {
+
+        typing.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1800);
+            return;
+        }
+
+    } else {
+
+        typing.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            messageIndex = (messageIndex + 1) % messages.length;
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 40 : 85);
+}
+
+typeEffect();
+
+
+// GALLERY SCROLL ANIMATION
+
+const photos = document.querySelectorAll(".photo");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.12
+});
+
+photos.forEach((photo) => {
+    observer.observe(photo);
+});
+
+</script>
+
+</body>
+</html>
